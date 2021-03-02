@@ -1,0 +1,29 @@
+$color-primary: #041db1 !default;
+$color-error: #da1b22 !default;
+$color-background: mix(#fff, $color-primary, 95%) !default;
+$color-text: scale-color($color-background, $lightness: -65%) !default;
+
+// create a colors map
+$colors: (
+  "primary": $color-primary,
+  "error": $color-error,
+  "background": $color-background,
+  "text": $color-text,
+  "white": #fff,
+);
+
+@function color($key) {
+  @return map-get($colors, $key);
+}
+
+$border-radius: 0.25em !default;
+
+// enable css custom properties
+// instead of using scss variable
+:root {
+  @each $key, $color in $colors {
+    --color-#{$key}: #{$color};
+  }
+
+  --border-radius: #{$border-radius};
+}

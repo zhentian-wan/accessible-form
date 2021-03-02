@@ -1,0 +1,18 @@
+.form-group {
+  // add 1.5em margin top to the next .form-group item
+  & + .form-group {
+    margin-top: 1.5em;
+  }
+
+  label {
+    display: block;
+    font-size: 1.15em;
+    font-weight: 500;
+    line-height: 1;
+
+    & + .form-field {
+      // add 0.5em margin top to the next .form-field item
+      margin-top: 0.5em;
+    }
+  }
+}

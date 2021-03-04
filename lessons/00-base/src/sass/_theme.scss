@@ -2,6 +2,13 @@ $color-primary: #041db1 !default;
 $color-error: #da1b22 !default;
 $color-background: mix(#fff, $color-primary, 95%) !default;
 $color-text: scale-color($color-background, $lightness: -65%) !default;
+$color-default: scale-color(
+    $color-background,
+    $lightness: -40%,
+    $saturation: -50%
+) !default;
+$color-disabled-border: scale-color($color-default, $lightness: 40%);
+$color-disabled-background: scale-color($color-default, $lightness: 75%);
 
 // create a colors map
 $colors: (
@@ -9,7 +16,10 @@ $colors: (
   "error": $color-error,
   "background": $color-background,
   "text": $color-text,
+  "default": $color-default,
   "white": #fff,
+  "disabled-border": $color-disabled-border,
+  "disabled-background": $color-disabled-background,
 );
 
 @function color($key) {

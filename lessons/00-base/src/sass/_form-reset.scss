@@ -1,0 +1,55 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.form-field {
+  --form-field-width: 30ch;
+
+  background-color: #fff;
+  border: 2px solid;
+  border-radius: var(--border-radius, $border-radius);
+  padding: 0.25em 0.5em;
+  font-family: inherit;
+  color: inherit;
+  // fallback
+  font-size: 16px;
+  // Capitalize to prevent Sass thinking it's the Sass max()
+  // While generally we want to set font-sizes in rem, there's a particular issue on mobile iOS,
+  // where if the field text is not at least 16 pixels, it will cause a zoom into the field,
+  // which may not be desirable as it can remove the label out of the viewport.
+  font-size: Max(16px, 1em);
+  max-width: 100%;
+  width: var(--form-field-width, 30ch);
+
+  &:not(textarea):not(.select--multiple) {
+    line-height: 1;
+    height: 2.25rem;
+  }
+
+  & select {
+    // appearance needs auto-prefixer
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    cursor: inherit;
+    line-height: inherit;
+
+    // remove dropdown arrow in IE10 AND IE11
+    // @link https://www.filamentgroup.com/lab/select-css.html
+    &::-ms-expand {
+      display: none;
+    }
+
+    outline: none;
+  }
+}

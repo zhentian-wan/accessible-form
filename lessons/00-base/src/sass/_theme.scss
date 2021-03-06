@@ -3,9 +3,9 @@ $color-error: #da1b22 !default;
 $color-background: mix(#fff, $color-primary, 95%) !default;
 $color-text: scale-color($color-background, $lightness: -65%) !default;
 $color-default: scale-color(
-    $color-background,
-    $lightness: -40%,
-    $saturation: -50%
+  $color-background,
+  $lightness: -40%,
+  $saturation: -50%
 ) !default;
 $color-disabled-border: scale-color($color-default, $lightness: 40%);
 $color-disabled-background: scale-color($color-default, $lightness: 75%);
@@ -24,6 +24,11 @@ $colors: (
 
 @function color($key) {
   @return map-get($colors, $key);
+}
+
+// Funciton to return a color formatted for use in an SVG
+@function svgColor($color) {
+  @return "%23" + str-slice("#{color($color)}", 2, -1);
 }
 
 $border-radius: 0.25em !default;
